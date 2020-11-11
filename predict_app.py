@@ -21,14 +21,14 @@ app=Flask(__name__)
 
 def get_model():
     global model
-    model=load_model("Faceshape_predictor.h5")
+    model=load_model("Faceshape_predictor_app.h5")
     print("model loaded")
 
 
 def preprocess_image(image):
     image = np.asarray(image)
     image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-    image = cv2.resize(image,(128,128))
+    image = cv2.resize(image,(64,64))
 	
     image = image[np.newaxis,...]
     image = image[...,np.newaxis]
